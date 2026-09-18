@@ -21,10 +21,14 @@ The research instance is one character bound to one host and one primary relatio
 2. [docs/01-how-she-works.md](docs/01-how-she-works.md) — turn loop and idle life
 3. [docs/02-identity-and-relationships.md](docs/02-identity-and-relationships.md) — who she thinks she is talking to
 4. [docs/03-memory-and-inner-life.md](docs/03-memory-and-inner-life.md) — what actually persists
-5. [docs/04-product-architecture.md](docs/04-product-architecture.md) — auth, API, tenancy
-6. [docs/05-workspace.md](docs/05-workspace.md) — local Cursor workspace for all three repos
-7. [docs/MODULE_GRAPH.yaml](docs/MODULE_GRAPH.yaml) — how files link
-8. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
+5. [docs/06-voice-and-ops-from-data.md](docs/06-voice-and-ops-from-data.md) — **live export + state evidence** (traffic, voice, ops, stale vs live)
+6. [docs/transcripts-stats.md](docs/transcripts-stats.md) — anonymized gateway counts
+7. [docs/transcripts-schema.md](docs/transcripts-schema.md) — export field names only
+8. [docs/05-workspace.md](docs/05-workspace.md) — local Cursor workspace for all three repos
+9. [docs/MODULE_GRAPH.yaml](docs/MODULE_GRAPH.yaml) — how files link
+10. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
+
+`docs/04-product-architecture.md` (auth / API / tenancy) is not written yet.
 
 ## Local workspace
 

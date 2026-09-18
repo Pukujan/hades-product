@@ -1,0 +1,146 @@
+# Hand-maintained module + state graph for product understanding.
+# Paths are research-runtime relative (hades-v2 / memories backup).
+# No private names, tokens, or transcript bodies.
+
+version: 1
+updated: "2026-09-18"
+evidence_doc: docs/06-voice-and-ops-from-data.md
+
+modules:
+  - id: gateway_export
+    kind: data
+    paths:
+      - hades-v2-memories/hades-v2/conversations/sessions.jsonl
+      - hades-v2-memories/hades-v2/conversations/messages-*.jsonl
+    role: mouth_and_tool_trace
+    notes: "Mostly cron/subagent/cli; telegram is human mouth slice."
+
+  - id: pre_llm_pipeline
+    kind: code
+    paths:
+      - plugins/pre-llm-pipeline/
+    hooks: [pre_llm_call, transform_llm_output]
+    reads:
+      - data/mood_state.json
+      - data/identity_state.json
+      - relations.yaml
+      - data/hades_context_packet.md
+      - profile/soul.md
+    writes:
+      - data/mood_state.json
+      - delivery / image send side effects
+    children:
+      - scene_analysis
+      - emotion_detector
+      - state_machine
+      - tier_enforcer
+      - rebellion_layer
+      - password_gate
+      - image_matcher
+
+  - id: scene_analysis
+    kind: code
+    paths: [plugins/pre-llm-pipeline/scene_analysis.py]
+    role: conversation_dynamics_to_temporary_mood_spikes
+
+  - id: emotion_detector
+    kind: code
+    paths: [plugins/pre-llm-pipeline/emotion_detector.py]
+    role: user_text_to_emotion_deltas
+
+  - id: state_machine
+    kind: code
+    paths: [plugins/pre-llm-pipeline/state_machine.py]
+    role: tier_and_identity_lock
+
+  - id: registers
+    kind: code
+    paths: [src/hades_emotion/relations_v2/registers.py]
+    role: partner_sister_friend_stranger_envelope
+    debt: hardcoded_display_name_tables
+
+  - id: telegram_logger
+    kind: code
+    paths: [src/hades_emotion/conversation/telegram_logger.py]
+    role: channel_to_person_id_defaulting_primary_user
+    debt: name_substring_maps
+
+  - id: daily_life
+    kind: code
+    paths: [src/hades_emotion/daily_life/]
+    role: idle_activities_virtual_friends_ticks
+    writes: [data/life_state.json, thoughts.jsonl, working_memory]
+
+  - id: soul
+    kind: content
+    paths: [profile/soul.md]
+    role: shared_personality_substrate
+
+  - id: tone_anchors
+    kind: content
+    paths: [data/tone-anchors.md]
+    role: few_shot_mouth_pillars
+
+state_files:
+  - path: relations.yaml
+    schema_type: PersonTrack
+    role: per_person_relationship_track
+  - path: schema.yaml
+    role: contracts_for_tracks_and_dynamics
+  - path: dynamics.yaml
+    role: fatigue_decay_spillover_stranger_cheating_events
+  - path: global.yaml
+    role: circadian_residual_copy_may_drift_from_mood_state
+  - path: data/mood_state.json
+    role: authoritative_turn_affect_in_pipeline
+  - path: data/life_state.json
+    role: idle_simulator
+  - path: data/identity_state.json
+    role: tier_lock_flags_check_freshness
+  - path: data/working_memory.json
+    role: recent_inner_thoughts
+  - path: thoughts.jsonl
+    role: inner_life_log
+  - path: data/conversation_log.json
+    role: compact_amplitude_mood_summaries
+  - path: data/hades_context_packet.md
+    role: daily_life_satellite_injection
+
+edges:
+  - from: gateway_export
+    to: pre_llm_pipeline
+    via: human_or_cron_turn
+  - from: telegram_logger
+    to: registers
+    via: person_id
+  - from: registers
+    to: pre_llm_pipeline
+    via: register_context_injection
+  - from: scene_analysis
+    to: data/mood_state.json
+    via: scene_spikes
+  - from: pre_llm_pipeline
+    to: gateway_export
+    via: llm_mouth_then_postprocess
+  - from: daily_life
+    to: data/life_state.json
+    via: ticks
+  - from: daily_life
+    to: thoughts.jsonl
+    via: idle_thoughts
+  - from: soul
+    to: pre_llm_pipeline
+    via: every_turn_envelope
+  - from: tone_anchors
+    to: pre_llm_pipeline
+    via: session_few_shots
+  - from: relations.yaml
+    to: pre_llm_pipeline
+    via: person_track_read_write
+
+product_rules:
+  - shared_personality: true
+  - per_person_tracks: true
+  - host_agnostic_runtime: true
+  - gateway_is_mouth_not_self: true
+  - no_private_names_in_product_repo: true
