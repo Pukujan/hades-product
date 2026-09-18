@@ -20,11 +20,17 @@ The research instance is one character bound to one host and one primary relatio
 1. [docs/00-strategy.md](docs/00-strategy.md) — docs vs FOSSIL vs knowledge graph
 2. [docs/01-how-she-works.md](docs/01-how-she-works.md) — turn loop and idle life
 3. [docs/02-identity-and-relationships.md](docs/02-identity-and-relationships.md) — who she thinks she is talking to
-4. [docs/03-memory-and-inner-life.md](docs/03-memory-and-inner-life.md) — what actually persists
-5. [docs/04-product-architecture.md](docs/04-product-architecture.md) — auth, API, tenancy
-6. [docs/05-workspace.md](docs/05-workspace.md) — local Cursor workspace for all three repos
-7. [docs/MODULE_GRAPH.yaml](docs/MODULE_GRAPH.yaml) — how files link
-8. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
+4. [docs/06-behavior-set.md](docs/06-behavior-set.md) — observed mouth; points at `gold/`
+5. [gold/codebook.md](gold/codebook.md) — 14 situations; full aliased turns in `gold/turns/`
+6. [docs/07-mood-and-prellm.md](docs/07-mood-and-prellm.md) — pre-LLM place vs spoken gold
+7. [docs/08-noticing-and-registers.md](docs/08-noticing-and-registers.md) — cues and cover
+8. [docs/09-memory-in-the-mouth.md](docs/09-memory-in-the-mouth.md) — recall vs files
+9. [docs/10-model-drift.md](docs/10-model-drift.md) — diction moves, identity is state
+10. [docs/03-memory-and-inner-life.md](docs/03-memory-and-inner-life.md) — what actually persists
+11. [docs/04-product-architecture.md](docs/04-product-architecture.md) — auth, API, tenancy
+12. [docs/05-workspace.md](docs/05-workspace.md) — local Cursor workspace for all three repos
+13. [docs/transcripts-stats.md](docs/transcripts-stats.md) — counts only
+14. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
 
 ## Local workspace
 
@@ -35,7 +41,9 @@ Long-term file inspection happens in Cursor, not in chat.
 - [.cursor/rules/privacy.mdc](.cursor/rules/privacy.mdc) — keep names and raw chats out of this repo
 
 ```bash
-python3 tools/transcript_stats.py --memories ../hades-v2-memories --out docs/transcripts-stats.md
+python tools/transcript_stats.py --memories ../hades-v2-memories
+python tools/build_gold.py --memories ../hades-v2-memories
+python -m unittest discover -s tests
 ```
 
 ## Source trees (research)

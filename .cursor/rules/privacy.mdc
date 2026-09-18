@@ -16,6 +16,7 @@ Allowed in `hades-product`:
 - Aggregated stats (counts, sources, roles, date ranges)
 - Field lists / schemas
 - Redacted voice notes with names already stripped
+- `gold/turns/*.jsonl` full **aliased** spoken turns (never raw names, never reasoning)
 
 Use `primary_user`, `person_id`, `partner`, `sister`, `virtual_friend` — not personal names.
 

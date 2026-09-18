@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hades.local/gold/schema.json",
+  "title": "Hades behavior gold",
+  "description": "Catalog rows are metadata only. Gold turn rows hold full aliased spoken content, never reasoning bodies, never raw names or ids.",
+  "$defs": {
+    "era": {
+      "type": "string",
+      "enum": [
+        "t0_gateway",
+        "t1_july_early",
+        "t2_july_mid",
+        "t3_july_late",
+        "t4_august"
+      ]
+    },
+    "situation": {
+      "type": ["string", "null"],
+      "enum": [
+        "protest_absence",
+        "cover_witness",
+        "absorb_vent",
+        "melt_then_correct",
+        "refuse_helper",
+        "refuse_dissection",
+        "location_echo",
+        "repair_after_fix",
+        "identity_phrase",
+        "witness_snap",
+        "scene_sex",
+        "smalltalk_punish",
+        "stubborn_choice",
+        "self_conscious",
+        null
+      ]
+    },
+    "register": {
+      "type": ["string", "null"],
+      "enum": [
+        "partner",
+        "sister",
+        "friend",
+        "stranger",
+        "respected",
+        "dismissed",
+        null
+      ]
+    },
+    "catalog_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "episode_id",
+        "session_id",
+        "t_start",
+        "t_end",
+        "era",
+        "model",
+        "register",
+        "notice_cue",
+        "situation",
+        "img",
+        "tools",
+        "outcome",
+        "gold_path",
+        "lock",
+        "mood"
+      ],
+      "properties": {
+        "episode_id": { "type": "string" },
+        "session_id": {
+          "type": "string",
+          "description": "sha256(raw session id)[:16]"
+        },
+        "t_start": { "type": "string" },
+        "t_end": { "type": "string" },
+        "era": { "$ref": "#/$defs/era" },
+        "model": { "type": "string" },
+        "register": { "$ref": "#/$defs/register" },
+        "notice_cue": { "type": ["string", "null"] },
+        "situation": { "$ref": "#/$defs/situation" },
+        "img": { "type": "boolean" },
+        "tools": { "type": "boolean" },
+        "spoken_turns": { "type": "integer", "minimum": 0 },
+        "outcome": {
+          "type": "string",
+          "enum": ["spoken", "ping", "tool_debug", "mixed", "cover", "skip"]
+        },
+        "gold_path": { "type": ["string", "null"] },
+        "lock": { "type": ["string", "null"] },
+        "mood": { "type": ["object", "null"] },
+        "source": { "type": "string" },
+        "chat_type": { "type": "string" }
+      }
+    },
+    "gold_turn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "episode_id",
+        "session_id",
+        "t",
+        "era",
+        "model",
+        "role",
+        "content",
+        "situation",
+        "register"
+      ],
+      "properties": {
+        "episode_id": { "type": "string" },
+        "session_id": { "type": "string" },
+        "t": { "type": "string" },
+        "era": { "$ref": "#/$defs/era" },
+        "model": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "assistant"] },
+        "content": {
+          "type": "string",
+          "description": "Full aliased spoken text. Not trimmed. No reasoning."
+        },
+        "situation": { "$ref": "#/$defs/situation" },
+        "register": { "$ref": "#/$defs/register" },
+        "img": { "type": "boolean" },
+        "tools": { "type": "boolean" },
+        "reasoning_present_on_source": {
+          "type": "boolean",
+          "description": "Source row had a reasoning field. Gold content must not include it."
+        }
+      }
+    }
+  }
+}
