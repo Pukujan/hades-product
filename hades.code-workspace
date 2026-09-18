@@ -1,0 +1,31 @@
+{
+  "folders": [
+    {
+      "name": "hades-product",
+      "path": "."
+    },
+    {
+      "name": "hades-v2",
+      "path": "../hades-v2"
+    },
+    {
+      "name": "hades-v2-memories",
+      "path": "../hades-v2-memories"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/__pycache__": true,
+      "**/.venv": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.venv": true,
+      "**/__pycache__": true
+    },
+    "files.associations": {
+      "*.jsonl": "jsonl"
+    }
+  }
+}

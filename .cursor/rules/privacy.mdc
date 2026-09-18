@@ -1,0 +1,22 @@
+---
+description: Keep private research names and raw chats out of the product repo
+alwaysApply: true
+---
+
+This workspace includes a research memories tree. The product repo must stay anonymized.
+
+Never add to `hades-product`:
+- Private first names from the research instance
+- Raw conversation transcripts or message `content` / `reasoning` bodies
+- Tokens, passphrases, danger words, numeric chat IDs, model keys
+
+Allowed in `hades-product`:
+- Architecture docs
+- Module graph
+- Aggregated stats (counts, sources, roles, date ranges)
+- Field lists / schemas
+- Redacted voice notes with names already stripped
+
+Use `primary_user`, `person_id`, `partner`, `sister`, `virtual_friend` — not personal names.
+
+If a command would print message bodies, do not run it in a form that gets committed.

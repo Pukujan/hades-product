@@ -22,8 +22,21 @@ The research instance is one character bound to one host and one primary relatio
 3. [docs/02-identity-and-relationships.md](docs/02-identity-and-relationships.md) — who she thinks she is talking to
 4. [docs/03-memory-and-inner-life.md](docs/03-memory-and-inner-life.md) — what actually persists
 5. [docs/04-product-architecture.md](docs/04-product-architecture.md) — auth, API, tenancy
-6. [docs/MODULE_GRAPH.yaml](docs/MODULE_GRAPH.yaml) — how files link
-7. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
+6. [docs/05-workspace.md](docs/05-workspace.md) — local Cursor workspace for all three repos
+7. [docs/MODULE_GRAPH.yaml](docs/MODULE_GRAPH.yaml) — how files link
+8. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
+
+## Local workspace
+
+Long-term file inspection happens in Cursor, not in chat.
+
+- [hades.code-workspace](hades.code-workspace) — multi-root window over sibling clones
+- [tools/transcript_stats.py](tools/transcript_stats.py) — stream the gateway export; write counts only
+- [.cursor/rules/privacy.mdc](.cursor/rules/privacy.mdc) — keep names and raw chats out of this repo
+
+```bash
+python3 tools/transcript_stats.py --memories ../hades-v2-memories --out docs/transcripts-stats.md
+```
 
 ## Source trees (research)
 
