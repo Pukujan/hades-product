@@ -33,8 +33,9 @@ The research instance is one character bound to one host and one primary relatio
 10. [docs/03-memory-and-inner-life.md](docs/03-memory-and-inner-life.md) — what actually persists
 11. [docs/04-product-architecture.md](docs/04-product-architecture.md) — auth, API, tenancy
 12. [docs/05-workspace.md](docs/05-workspace.md) — local Cursor workspace for all three repos
-13. [docs/transcripts-stats.md](docs/transcripts-stats.md) — counts only
-14. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
+13. [docs/11-research-engine-map.md](docs/11-research-engine-map.md) — origin file inventory vs what to port
+14. [docs/transcripts-stats.md](docs/transcripts-stats.md) — counts only
+15. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
 
 ## Local workspace
 

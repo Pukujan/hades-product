@@ -31,6 +31,6 @@ property_graph.py is her in-world entity store. Not a graph of Python modules. C
 1. `AGENTS.md` + `gold/turns/` — end goal and mouth
 2. hades-product/docs — architecture and identity
 3. MODULE_GRAPH.yaml — file + state contracts (when it exists)
-4. runtime git SHA — what the docs describe
+4. runtime git SHA — what the docs describe. Engine map: [11-research-engine-map.md](11-research-engine-map.md)
 5. FOSSIL packs — research appendix only
 6. world property graph — runtime feature
