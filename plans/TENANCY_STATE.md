@@ -123,6 +123,18 @@ Repeat spam (`hi how are you` × 10–20): **server** rejects. Not React. Client
 
 Do **not** disconnect the account. Do **not** play cached fake replies. She did not speak. Frontend shows the error, not a costume. Same phrase after a pause / different text → mouth runs again.
 
+Bot / robot checks: **not her mouth**. Do not ask the LLM “are they a bot?” (costly, gameable, helper-shaped).
+
+Ladder (server + edge):
+
+1. Auth + Cloudflare (or equivalent) on the API.
+2. Token bucket per `account_id` / IP.
+3. Normalize + hash inbound; N identical in a window → 429, no tick.
+4. Velocity / low-entropy burst on a new account → **challenge** (Turnstile/hCaptcha) before the next mouth call.
+5. Fail challenge or keep bursting → mouth cooldown. Account stays. No fake replies.
+
+React only shows challenge/error. Detection and quotas stay on the server.
+
 ## These were not in BUILD PDD/SDD
 
 BUILD PDD = mouth/gold. SDD = packet schema. Tenancy/scale/abuse live **here** until folded into tests.
