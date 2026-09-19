@@ -39,6 +39,25 @@ store (durable DB — not process RAM, not one host yaml)
 - **Rows in DB** = this account’s Hades. Restart-safe.
 - Account A row never joins Account B.
 
+## Placement (code vs yaml vs ticker vs state vs client)
+
+This is **architecture** (`docs/04`, this file) **and** **policy** (tests must fail if a layer is in the wrong place). Not “pick one.”
+
+| Piece | What it is | Lives | Not |
+|---|---|---|---|
+| **Herself** (soul, lock, gold mouth, physics *shape*) | identity | git + packet schema | live numbers, name tables |
+| **Ticker** (how numbers move) | `hades_runtime` Python: circadian/fatigue/desire/attachment/idle | **our servers** | React, client WASM, “200 yaml files” |
+| **Physics templates** | few versioned configs (`dynamics` scales, circadian anchors) | git | `global.yaml`, `relations.yaml` |
+| **State engine / counters** | mood, fatigue, residual, ITD, people, thoughts | **DB row `account_id`** | process RAM as SoT, client localStorage |
+| **Mouth** | LLM call | server, key in gitignored env | browser |
+| **React** | render `content` + signed image URL; Turnstile widget; 429 UI | client PC | packet, mood, register, keys |
+
+**Do we ship all ~203 engine files / all yaml?** No. Port the **self loop** (core, circadian, fatigue, desire/ITD, attachment, idle, memory, registers). Not skills dump, not cheating defaults, not live yaml.
+
+**What runs on the client PC?** Display + optional debounce + challenge widget. **Zero** of her numbers. OWASP Authorization: *never rely on client-side access control*; checks on **every** request **server-side** (ASVS V4.1.1). API1 BOLA: auth token **is** `account_id`; body cannot pick another Hades.
+
+If mood ran in the browser, the user could set “not tired” and she would not be herself — and A could not be isolated from a patched client.
+
 ## How the packet is filled (product)
 
 ```text
