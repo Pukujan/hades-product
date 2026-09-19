@@ -19,6 +19,8 @@ def handle_turn(
     is_family: bool = False,
     display_name: str | None = None,
     complete=None,
+    state=None,
+    signed_url=None,
 ) -> dict:
     register = select_register(
         is_partner=is_partner,
@@ -42,8 +44,9 @@ def handle_turn(
         content = ""
     else:
         content = complete(packet_messages(packet, text))
-    rec = apply_once(store, account_id, person_id, text, {"last_register": register})
-    out = deliver(content, None)
+    st = state if state is not None else store
+    rec = apply_once(st, account_id, person_id, text, {"last_register": register})
+    out = deliver(content, signed_url)
     out.update(
         {
             "register": register,
@@ -51,6 +54,8 @@ def handle_turn(
             "schema_version": "1",
         }
     )
+    if signed_url and ("CLOUDFLARE_R2_SECRET" in signed_url or "AKIA" in signed_url):
+        raise RuntimeError("r2 key leaked to client")
     if "reasoning" in out:
         raise RuntimeError("reasoning leaked")
     return out
