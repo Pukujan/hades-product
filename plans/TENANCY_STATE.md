@@ -212,6 +212,33 @@ k8s: a **pool** of vLLM (or API) workers. Scheduler sends **this account’s pac
 
 Small model is allowed **only after** `python -m unittest` gold properties stay green on that mouth. If qwen3.8-flash fails gold, it is not the relationship mouth — maybe idle only.
 
+## Neural growth (Hebbian, per account)
+
+Research code: `src/hades_emotion/cognition/neural_growth.py` + `growth/{subconscious,emergence,maturation}.py`. Not yaml. A **27×27** weight matrix.
+
+How it actually works (from that file, not folklore):
+
+1. Emotions are a fixed list of 27 (sadness, joy, … vulnerability).
+2. Co-activation: Δw = η · pre · post (Hebb / STDP-style). Clamp [−1, 1].
+3. Tick: unused synapses decay; below 0.01 → prune.
+4. Plasticity falls with age (`exp(-ticks / 100)`), never 0.
+5. Spreading activation up to 3 hops (emotion cascades).
+6. `SubconsciousGrowth` can **add a node** (27→28…) when a co-activation cluster beats a threshold. She does **not** name it until later. Packet/mood can shift first.
+
+Connected: `bias_engine/c_matrix.py` is **different** — a 6-action preference vector from mood+fatigue+tier. Growth matrix = how feelings wire. C-matrix = what idle *does*. Both feed pre-LLM; neither is the mouth.
+
+**Better than raw Hebb?** Classic Hebb unbounded; they already clamp + prune. Literature alternative is **Oja’s rule** (normalized Hebb) if weights still blow up. Do not replace with a transformer or embeddings — 27×27 is O(1) per turn (~6KB JSON per account).
+
+**Product**
+
+- One matrix **per `account_id`** in the DB. A’s wiring never updates B.
+- Founder: import `neural_growth.json` once. Others: zeros (tabula rasa).
+- Cap extra nodes (e.g. 27+K) so ontology cannot grow without bound.
+- Server only. Not React.
+- New names must **not** appear in user speech until gold-safe; inner life may notice “I feel different.”
+
+Hebb 1949; STDP (Bi & Poo 1998); Oja 1982 if we need a stabilizer. Gold still judges the mouth.
+
 ## Observability vs her mouth
 
 Need **billing and latency**. Do not need full prompt traces of live DMs.
