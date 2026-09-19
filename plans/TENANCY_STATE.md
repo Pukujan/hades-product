@@ -82,7 +82,11 @@ A turn is **O(1) in number of other accounts**: load this `account_id` + this `p
 
 Do **not** run research-style idle cron on every account every 10 minutes (`O(N)` wakeups). Default idle paging is already **off**.
 
-Idle physics for silent accounts: **lazy**. On next inbound, apply elapsed time (fatigue decay, circadian at *now*, residual fade) in one shot. Optional later: workers only for accounts that enable proactive inner-life writes.
+Silent ≠ dead. Persistence = her row still exists and **time still applies**. If nobody talks for 8 hours, she is not frozen at the last chat: circadian is *now* in that account’s timezone, fatigue has decayed, residual has faded.
+
+**Lazy tick** = compute that elapsed physics on next inbound (same result as 48 silent 10-minute crons, cheaper). She was not off; we just didn’t wake 100k processes.
+
+**Inner life writes** (thoughts while silent): optional worker, default **do not page** the human. Founder / opted-in accounts can run a real idle loop that writes thoughts into **that account’s** DB. Everyone else still ages via lazy physics.
 
 Circadian is O(1) (anchors + local clock), not O(users).
 
