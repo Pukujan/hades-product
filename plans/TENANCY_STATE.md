@@ -148,6 +148,29 @@ BUILD PDD = mouth/gold. SDD = packet schema. Tenancy/scale/abuse live **here** u
 | Rate limit | excess inbound 429 / drop, no extra ticks | spam drives inner-life workers |
 | Idle does not page | worker must not DM the human (default) | cron pages |
 
+## External triage (not model agreement)
+
+D007: tests/gold/external sources decide. Checked 2026-09-19.
+
+| Claim in this plan | External | Verdict |
+|---|---|---|
+| Quotas on the **server**, not React | OWASP API4:2023 Unrestricted Resource Consumption; CWE-770/799 | **Keep.** Client limits are bypassable. |
+| Mouth LLM is a paid third-party — must cap spend | API4 SMS scenario: backend fan-out to a billed API | **Add.** Per-account **and** global mouth $ / token alerts. |
+| Cheap checks before expensive ones | OWASP DoS cheat sheet: cheap validation first | **Keep.** Hash + rate limit **before** mouth. |
+| Visible CAPTCHA is not a DoS defense | OWASP DoS: puzzles don’t stop DoS; Bot cheat sheet: CAPTCHA last-resort | **Keep.** Turnstile as **step-up**, not every turn. |
+| Layered edge + app + business | OWASP Bot Management cheat sheet | **Keep.** Cloudflare + API quotas + no mood tick on flood. |
+| Graduated response, not instant ban | Bot cheat sheet: don’t always block; tarpit/challenge | **Adjust.** 429 ok; avoid precise `Retry-After`; don’t fake her mouth. |
+| Isolation is object-level auth | OWASP API1:2023 BOLA | **Add.** Never trust `account_id` from the client body. Auth token **is** the account. |
+| Shared code, isolated rows | Azure tenancy models (fully multitenant + noisy neighbor) | **Keep.** Per-account LLM quota so A cannot starve B’s mouth. |
+| LLM as bot detector | (none supporting) | **Reject.** Not in OWASP bot controls; costs tokens; helper-shaped. |
+
+Missing vs sources, now required:
+
+- Independent rate buckets: **per account** and **per IP**, not one combined key (Bot cheat sheet login pattern).
+- Mouth **timeout** + max inbound bytes (API4).
+- Log allow/challenge/429 with route + account hash; no PII (Bot cheat sheet).
+- Privacy-hardened browsers: challenge, don’t auto-ban.
+
 ## Implement order (after this plan)
 
 1. Character-state schema in store (packet fields, timezone).
