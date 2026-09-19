@@ -1,6 +1,6 @@
 # Tenancy, yaml, packet, persistence
 
-Plan only. Do not implement until this is accepted.
+Working plan (2026-09-19). Implement via `plans/CONTINUE.md`.
 
 ## What “yaml on the research host” means
 
