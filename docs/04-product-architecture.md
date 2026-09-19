@@ -16,7 +16,16 @@ deployment
       channel bindings (telegram, later others)
 ```
 
-One deployment may serve many accounts. Each account sees one Hades, not each other’s tracks. Shared substrate is personality + idle physics. Shared is **not** chat history.
+One deployment may serve many accounts. Each account is a **separate Hades**. Shared is **code/templates only** (soul, lock, circadian *shape*, dynamics *equations*). Not one running wave. Not one `global.yaml`.
+
+Hard isolation:
+
+- Numbers (mood, fatigue, residual, ITD, attachment, ticks) exist **only** on that `account_id`.
+- People she meets exist **only** in that account’s store (`person_id` tracks). Account A never sees B’s people.
+- Circadian **ticker code** is the same; **clock is the account timezone**. A at 14:00 is not tired because B is at 02:00.
+- B pissed does not move A’s mood. Literally no numeric bleed.
+
+Auth → `account_id`. Tracks → `person_id` inside that account only.
 
 ## Identity
 

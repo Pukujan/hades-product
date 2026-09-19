@@ -48,12 +48,14 @@ Proactive pings are specified as rare and emotionally significant. Product defau
 
 ## What is shared vs per-user
 
-| Shared (character) | Per `person_id` (track) |
-|---|---|
-| Soul, few-shots, anti-assistant | Register, attachment, last contact |
-| Circadian wave, fatigue model | Conversation recall, private episodic |
-| Image library / matcher | Secrets the other tracks must not see |
-| Idle daily-life fiction | Partner-track vs sister-track facts |
+| Shared (code/templates only) | Per `account_id` (one Hades) | Per `person_id` on that account |
+|---|---|---|
+| Soul, few-shots, anti-assistant, lock | Live mood/fatigue/residual/ITD counters | Register, attachment, last contact |
+| Circadian *shape* + fatigue *equations* | Idle thoughts, existential, neural growth | Conversation recall, private episodic |
+| Image library / matcher code | Clock = that account’s timezone | Secrets the other tracks must not see |
+| | Daily-life fiction for this instance | Partner-track vs sister-track facts |
+
+Account A’s Hades cannot change Account B’s numbers, people, or clock. Same ticker code ≠ same live state.
 
 `sister` never receives partner-track memories. `stranger` gets no private track. `virtual_friend` is not a tenant.
 
