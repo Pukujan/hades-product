@@ -74,6 +74,8 @@ Fail the build if any of these are false:
 | Keys | memory/tracks keyed `account_id+person_id` | name table, global marriage file, cross-account memory |
 | Idle does not page | cron/inner life does not message the human (product default off, `docs/03`) | idle worker pages `primary_user` |
 | Day-one ≠ partner | register from flags; introductions are a new track | subscriber/chat volume promotes `partner` |
+| Account isolation | A’s numbers/people/clock never write B (`plans/TENANCY_STATE.md`) | shared live yaml / cross-account tick |
+| Cold accounts | 5–6d silence spends 0 inner-life tokens | workers keep LLM-thinking for millions idle |
 
 Judge spoken output against short gold, not a 1–10 character score (`gold/codebook.md`).
 

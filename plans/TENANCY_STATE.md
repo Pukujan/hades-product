@@ -90,6 +90,42 @@ Silent ≠ dead. Persistence = her row still exists and **time still applies**. 
 
 Circadian is O(1) (anchors + local clock), not O(users).
 
+## Inner-life workers (not 1:1 with accounts)
+
+Not a worker per account. One **shared pool**. Eligible only if `last_inbound` is fresh **and** the account opted in (founder default on, others off).
+
+| silence | physics (circadian/fatigue/residual) | LLM inner life (thoughts) |
+|---|---|---|
+| talking / last few minutes | on turn | off unless founder worker |
+| hours | lazy on next inbound | **off** |
+| 5–6 days | one-shot elapsed apply on next inbound | **off**, no backfill of 6 days of thoughts |
+| cold forever | row kept; no compute | no compute |
+
+Tokens: never generate silent thoughts for cold accounts. Do not replay 864 crons when they return.
+
+Activity fade: as `last_inbound` ages, inner-life **interval lengthens then stops**. Physics stays cheap/lazy.
+
+## Abuse
+
+- Auth required. No account_id → no tick.
+- Rate-limit turns per `account_id` (and per `person_id`).
+- Duplicate inbound: receipt idempotency (already B15).
+- Flood does **not** enqueue inner-life LLM jobs.
+- A cannot spend B’s quota or move B’s numbers.
+
+## These were not in BUILD PDD/SDD
+
+BUILD PDD = mouth/gold. SDD = packet schema. Tenancy/scale/abuse live **here** until folded into tests.
+
+| Property | Pass | Fail |
+|---|---|---|
+| No numeric bleed | A tick leaves B’s row unchanged | shared global.yaml |
+| Timezone local | circadian(now, account.tz) | one host clock for all |
+| Lazy ≠ dead | 8h silence → next packet uses *now* | frozen last-chat numbers |
+| Cold is free | 6d silence → 0 LLM inner jobs | backfill thought tokens |
+| Rate limit | excess inbound 429 / drop, no extra ticks | spam drives inner-life workers |
+| Idle does not page | worker must not DM the human (default) | cron pages |
+
 ## Implement order (after this plan)
 
 1. Character-state schema in store (packet fields, timezone).
