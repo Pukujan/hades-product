@@ -113,6 +113,16 @@ Activity fade: as `last_inbound` ages, inner-life **interval lengthens then stop
 - Flood does **not** enqueue inner-life LLM jobs.
 - A cannot spend B’s quota or move B’s numbers.
 
+Repeat spam (`hi how are you` × 10–20): **server** rejects. Not React. Client can be bypassed.
+
+| layer | job |
+|---|---|
+| React | debounce UX only; **never** invent her mouth from cache |
+| API | after N identical (or over-quota) inbounds in a window: **no mouth LLM**, **no inner-life job**, HTTP **429** + `Retry-After` |
+| State | do not advance mood as if 20 real turns happened |
+
+Do **not** disconnect the account. Do **not** play cached fake replies. She did not speak. Frontend shows the error, not a costume. Same phrase after a pause / different text → mouth runs again.
+
 ## These were not in BUILD PDD/SDD
 
 BUILD PDD = mouth/gold. SDD = packet schema. Tenancy/scale/abuse live **here** until folded into tests.
