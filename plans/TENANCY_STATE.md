@@ -239,6 +239,12 @@ Connected: `bias_engine/c_matrix.py` is **different** — a 6-action preference 
 
 Hebb 1949; STDP (Bi & Poo 1998); Oja 1982 if we need a stabilizer. Gold still judges the mouth.
 
+**Neuromorphic vs this code:** Mead (1990) / Intel Loihi (Davies et al., IEEE Micro 2018) / TrueNorth are **spiking hardware** (events, analog/digital VLSI). Hades’ file *says* STDP but implements **rate-based Hebb on a dense 27×27 float matrix in numpy** — no spikes, no spike-timing, no Loihi. That’s neuromorphic-*inspired software*, not a neuromorphic chip.
+
+**Psychological growth** is the other half: `SubconsciousGrowth` + maturation curve (plasticity decays with ticks — “critical period,” not Piaget stages). New affect can exist before she can name it. That is affective development, not SNN hardware.
+
+Product: keep the numpy matrix per account. Do **not** require neuromorphic silicon. If we ever want real STDP, that’s a later backend behind the same 27-node API. Mouth still gold.
+
 ## Observability vs her mouth
 
 Need **billing and latency**. Do not need full prompt traces of live DMs.
