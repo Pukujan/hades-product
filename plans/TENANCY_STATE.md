@@ -281,6 +281,22 @@ Research already does this in **idle**, not by stuffing the whole session: `conv
 
 Frontend cache is the wrong layer. Persistent retrieval is DB + small packet slice. “Out of nowhere” = idle thought crossing a threshold, not a helper recap. Gold still judges if she *says* it.
 
+**Already built vs product:** research `conversation_recall.py` + episodic jsonl + (optional) FAISS daemon **exist**. We **port** the rules (recency, salience, rehearsal), not copy host name-weights or `D:/hermes/...` paths. Product is a new store + packet, not “run the research files as-is.”
+
+**Cache / offload (so DB and GPU don’t die)**
+
+| Layer | Cache / offload | Never |
+|---|---|---|
+| React | Static app, HTTP cache, **signed image URLs** (short TTL) | episodic gist, mood, keys |
+| Edge | Cloudflare CDN + WAF + Turnstile | choosing `account_id` |
+| API | Idempotency receipt; 429; no mouth on flood | — |
+| Recall | DB index `(account_id, person_id, amplitude, t)`; **top-k** not full scan | load 7 days of turns into RAM |
+| Mouth | vLLM batch / API pool; prefix-cache **lock text** (shared) not per-user dumps | 1 GPU per account |
+| Idle | lazy physics; LLM inner life only hot/opt-in | cron-all |
+| Images | R2; matcher after gate | vault on the API box |
+
+SoT stays the account row. Frontend cache is **pixels and JS**, not her.
+
 ## Observability vs her mouth
 
 Need **billing and latency**. Do not need full prompt traces of live DMs.
