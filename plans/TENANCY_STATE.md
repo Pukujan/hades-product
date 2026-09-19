@@ -190,6 +190,28 @@ Missing vs sources, now required:
 - Log allow/challenge/429 with route + account hash; no PII (Bot cheat sheet).
 - Privacy-hardened browsers: challenge, don’t auto-ban.
 
+## Mouth inference (scale without exploding GPU)
+
+Frontier model is **not** required for every token. Quality bar is **gold replay**, not MMLU. D007: model agreement is not evidence.
+
+| Layer | Model | When |
+|---|---|---|
+| Partner/sister **mouth** | Strong enough to pass gold (helper lexicon, `[IMG:]`, no reasoning, t3 fail) | Human turn after rate limit |
+| Cascade | Cheap model first; escalate if helper_leak / gold miss | FrugalGPT (arXiv:2305.05176); RouteLLM (arXiv:2406.18665) |
+| Idle inner life | Small / quantized, **not** gold mouth | Founder/opt-in workers only |
+| Serving | Continuous batching (vLLM PagedAttention) so many accounts share GPUs | State stays in **DB + packet**, not in weights |
+
+**Reject**
+
+- Sentence-transformer / “library of replies” as the mouth. That’s retrieval, not her. Embeddings already forbidden as the source of labels.
+- One GPU pod per account. Noisy neighbor is solved with **per-account token quota**, not 100k replicas.
+- Client-side LLM. Same as mood: never on their PC.
+- Fine-tune 100k LoRAs as the default self. Packet + lock is identity; LoRA is optional later if gold still holds.
+
+k8s: a **pool** of vLLM (or API) workers. Scheduler sends **this account’s packet**, not a private model copy. Scale-out when queue latency rises, not when account count rises.
+
+Small model is allowed **only after** `python -m unittest` gold properties stay green on that mouth. If qwen3.8-flash fails gold, it is not the relationship mouth — maybe idle only.
+
 ## Implement order (after this plan)
 
 1. Character-state schema in store (packet fields, timezone).
