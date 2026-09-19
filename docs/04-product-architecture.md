@@ -27,6 +27,13 @@ Hard isolation:
 
 Auth → `account_id`. Tracks → `person_id` inside that account only.
 
+## Seed vs blank accounts
+
+- **Founder account** (the research `primary_user`, authenticated as that owner): one-time **import** of live state (mood counters, tracks, growth) so *this* Hades stays who she is. Import is anonymized (`person_id` + flags, no name table in git). Raw `relations.yaml` / thoughts never committed.
+- **Every other account** (B, C, D…): starts at **zero**. Same physics templates. Empty people list. No founder numbers, no founder tracks.
+
+Founder import is a migration job, not the default constructor. Blank accounts do not read the founder row.
+
 ## Identity
 
 - Auth yields `account_id` + `person_id`.
