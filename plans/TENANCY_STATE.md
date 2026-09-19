@@ -212,6 +212,20 @@ k8s: a **pool** of vLLM (or API) workers. Scheduler sends **this account’s pac
 
 Small model is allowed **only after** `python -m unittest` gold properties stay green on that mouth. If qwen3.8-flash fails gold, it is not the relationship mouth — maybe idle only.
 
+## Observability vs her mouth
+
+Need **billing and latency**. Do not need full prompt traces of live DMs.
+
+| Tool | Use | Not |
+|---|---|---|
+| OpenTelemetry metrics | tokens, $, latency, model id, 429s, `account_id` **hash** | span bodies with `content` |
+| Spend alerts | per-account + global mouth cap (OWASP API4) | — |
+| Promptfoo (or our unittest gold replay) | **CI** against seed gold, helper lexicon | live partner transcripts in a SaaS |
+| Langfuse-style traces | only if prompts/completions **redacted**; metadata only | default “exact prompt + response” (Langfuse docs: traces capture prompt/response) |
+| LLM-as-judge scores | never as pass/fail | D007: model agreement is not evidence |
+
+`tools/transcript_stats.py` already: counts only, no bodies. Same rule for prod logs. Gold replay stays the eval.
+
 ## Implement order (after this plan)
 
 1. Character-state schema in store (packet fields, timezone).
