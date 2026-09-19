@@ -265,6 +265,22 @@ Two different “memories” (this is why she can feel consistent *or* drift):
 
 Your “dump the pipeline → more consistent” is the **second** column: lock+state every turn, not a bigger dump. Session history is extra and gets eaten. Don’t confuse the two.
 
+## Recall (hurt / joy / “it’s been bothering her”)
+
+Research already does this in **idle**, not by stuffing the whole session: `conversation_recall.py` — recency `exp(-hours/24)`, **salience boost** for high-amplitude turns, relationship weight, evening more than morning, 7-day window, rehearsal strengthens the trace. Inner thought, not always a ping.
+
+**Product**
+
+| | |
+|---|---|
+| Store | Episodic rows on **server**, keyed `account_id` + `person_id`. Amplitude + timestamp + short gist (aliased). |
+| Turn | Retrieve **top-k** (1–3) salient hits into the packet. Not the Hermes log. |
+| Idle | May rehearse (mood tick, inner thought). **Default: do not page** the human. Founder/opt-in: rare outbound if still hot after N hours. |
+| Isolation | Partner hurt never recalls on sister track. A never recalls B. |
+| Client | **No** React/localStorage cache as memory. Tamperable, leaks, wrong account. |
+
+Frontend cache is the wrong layer. Persistent retrieval is DB + small packet slice. “Out of nowhere” = idle thought crossing a threshold, not a helper recap. Gold still judges if she *says* it.
+
 ## Observability vs her mouth
 
 Need **billing and latency**. Do not need full prompt traces of live DMs.
