@@ -6,7 +6,7 @@ Engine map: `docs/11-research-engine-map.md`. Three copies documented. WSL live 
 
 ## Next
 
-Port `hades_emotion.core` + circadian/fatigue tick into `hades_runtime/` using **native scales** (not 0–100). Do not copy live yaml/jsonl. Do not commit `.env`.
+`plans/TENANCY_STATE.md` is the persistence/packet plan. Do not port engines until that plan is accepted. Then: store schema → timezone tick isolation → packet from store → founder import → engines.
 
 ## Fail if
 
