@@ -72,6 +72,20 @@ Import is a job: read research yaml/json → map names to `person_id` + flags **
 - Shared circadian clock across accounts
 - Join Sep `relations.yaml` onto July gold
 
+## Durability vs RAM
+
+Live numbers live in the **account DB row**. A process cache is optional and **must be reloadable from DB**. Kill the backend → state still there. Not one in-memory Hades for the whole deployment.
+
+## Scale (100k accounts)
+
+A turn is **O(1) in number of other accounts**: load this `account_id` + this `person_id`, interpolate circadian from **this** timezone, packet, one mouth call, write this row. A’s tick does not loop B.
+
+Do **not** run research-style idle cron on every account every 10 minutes (`O(N)` wakeups). Default idle paging is already **off**.
+
+Idle physics for silent accounts: **lazy**. On next inbound, apply elapsed time (fatigue decay, circadian at *now*, residual fade) in one shot. Optional later: workers only for accounts that enable proactive inner-life writes.
+
+Circadian is O(1) (anchors + local clock), not O(users).
+
 ## Implement order (after this plan)
 
 1. Character-state schema in store (packet fields, timezone).
