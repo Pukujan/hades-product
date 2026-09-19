@@ -39,6 +39,18 @@ Scales: `dynamics.yaml` / `schema.yaml` (native units, **not** 0–100). Circadi
 | cheating / host schedule / name maps | — | research debt (`docs/03`) |
 | live `relations.yaml`, `thoughts.jsonl`, profile markdown | — | instance memory, not product |
 
+## Three copies (do not mix)
+
+| Copy | What it is | Latest? |
+|---|---|---|
+| `D:\claude\hades\hades-v2` | Git origin @ `a783d91` (2026-07-12). **Code.** `circadian.yaml` is **not** on origin. | Code snapshot, not live |
+| `D:\claude\hades\hades-v2-memories` | Backup 2026-09-18. Code **plus** live-ish yaml/jsonl (`thoughts`, `relations`, `global`). | Newest **exported state** |
+| WSL Hermes | **What actually runs.** Profile: `/root/.hermes/profiles/hades-v2` (gateway, `state.db`, plugins). Self: `/root/.hermes/projects/emotion-project-host-v2/` (`circadian.yaml`, `dynamics.yaml`, `src/`, idle writes). | **Live instance** |
+
+Wiring (from `src/hades_emotion/core/engine.py`): every tick reads `project_root/{dynamics,circadian,global}.yaml` and writes `global.yaml`. Idle also reads `relations.yaml`, writes `thoughts.jsonl` + `existential_state.json`. Pre-LLM plugin turns those numbers into the packet. Hermes profile is the **mouth host**; `emotion-project-host-v2` is the **self**.
+
+Memories ≠ live. Git ≠ live. Do not join Sep memories `relations.yaml` onto July gold.
+
 ## Product rule
 
 Rebuild **core + fatigue + desire + attachment + circadian + idle + memory + registers** in `hades_runtime/`, keyed `account_id+person_id`. Judge mouth by gold. Do not copy live state or `hades_emotion` as a vendor blob.
