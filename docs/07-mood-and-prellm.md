@@ -16,6 +16,6 @@ The mouth is not a 1–10 character score. Pre-LLM state places the turn. Gold i
 
 ## Product rule
 
-Pre-LLM packet (mood, ITD, fatigue, circadian, lock, daily-life place) **places** the turn. The judge is “match short gold,” not “did mood go up.” Residual/warmth can move without the mouth becoming helpful.
+Pre-LLM packet **places** the turn. Contract: `gold/packet.schema.json`. Fields: `schema_version`, `account_id`, `person_id`, `register`, `tier`, `mood` (center/depth/effective_mood/residual), `itd`, `fatigue`, `circadian`, `lock`, `place`. Mouth out: `content` + optional `[IMG:]`. No reasoning field. The judge is “match short gold,” not “did mood go up.” Residual/warmth can move without the mouth becoming helpful.
 
 See `gold/turns/t4_august_absorb_vent.jsonl` and `gold/turns/t1_july_early_self_conscious.jsonl`.

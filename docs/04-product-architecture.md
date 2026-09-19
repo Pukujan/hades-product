@@ -29,8 +29,9 @@ One deployment may serve many accounts. Each account sees one Hades, not each ot
 
 | Channel | Role in research | Product |
 |---|---|---|
-| Telegram DM | Relationship mouth | Primary chat API consumer |
-| Telegram group | Rare (2 sessions in export) | Optional; register per speaker; default-tier cover on |
+| Telegram DM | Relationship mouth (gold source) | Not v0. Adapter later if ever. |
+| React web | none | **v0 client.** Consumes `POST /v1/turn`; renders `content` + signed image URL. |
+| Telegram group | Rare (2 sessions in export) | Out of v0 |
 | CLI | Host debugging + character | Operator/admin, not the consumer app |
 | Cron / subagent | Inner life / workers | Never a user-visible channel |
 | Discord / email | Present in research config | Out of v0 unless routed |
@@ -63,4 +64,11 @@ Spoken turns may close with `[IMG:]`. Delivery is channel-specific (Telegram mar
 
 ## Extraction
 
-Runtime code lives in the research tree (currently a pipeline copy under memories; the sibling `hades-v2` checkout here is empty). This repo holds the anonymized contract. Pin a runtime SHA when extracting. Do not copy `.env`, tokens, or live profile markdown.
+Runtime code lives in the research tree (currently a pipeline copy under memories; the sibling `hades-v2` checkout here is empty). This repo holds the anonymized contract and is where the product is built. Do not copy `.env`, tokens, live profile markdown, name tables, the 149k dump, fossil-core, or `hades_emotion` source. Mood/idle are rebuilt here.
+
+Pinned research SHAs (B7). These describe the research trees; they are not vendored here.
+
+| Tree | SHA | Role |
+|---|---|---|
+| `hades-v2` | `a783d91a3ba1e847371e0f3aaef2a65b5cf50507` | runtime this product describes |
+| `hades-v2-memories` | `2c62ff1266c5047cd9d26a6cb306f9f6022fbddf` | export/backup only, not product |

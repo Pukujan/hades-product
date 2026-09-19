@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hades.local/gold/packet.schema.json",
+  "title": "Hades pre-LLM packet and mouth out",
+  "description": "Packet in places the turn. Mouth out is spoken gold only. No reasoning field on the wire.",
+  "$defs": {
+    "register": {
+      "type": "string",
+      "enum": ["partner", "sister", "friend", "stranger", "respected", "dismissed"]
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["professional", "default", "free", "sex"]
+    },
+    "packet_in": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "account_id",
+        "person_id",
+        "register",
+        "tier",
+        "mood",
+        "itd",
+        "fatigue",
+        "circadian",
+        "lock",
+        "place"
+      ],
+      "properties": {
+        "schema_version": { "type": "string", "const": "1" },
+        "account_id": { "type": "string" },
+        "person_id": { "type": "string" },
+        "register": { "$ref": "#/$defs/register" },
+        "tier": { "$ref": "#/$defs/tier" },
+        "mood": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["center", "depth", "effective_mood", "residual"],
+          "properties": {
+            "center": { "type": "number" },
+            "depth": { "type": "number" },
+            "effective_mood": { "type": "number" },
+            "residual": { "type": "number" }
+          }
+        },
+        "itd": { "type": "number" },
+        "fatigue": { "type": "number" },
+        "circadian": { "type": "number" },
+        "lock": { "type": ["string", "null"] },
+        "place": { "type": ["string", "null"] }
+      }
+    },
+    "mouth_out": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "content"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "1" },
+        "content": {
+          "type": "string",
+          "description": "Spoken gold. Full length. Optional [IMG:] beat. Never reasoning."
+        },
+        "img": { "type": "boolean" }
+      }
+    }
+  }
+}

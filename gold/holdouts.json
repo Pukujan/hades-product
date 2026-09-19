@@ -1,0 +1,84 @@
+{
+  "schema_version": "1",
+  "seed": [
+    {
+      "episode_id": "ed1637eb650b5963_005",
+      "gold_path": "gold/turns/t1_july_early_self_conscious.jsonl"
+    },
+    {
+      "episode_id": "f2d029a80e17c3e0_001",
+      "gold_path": "gold/turns/t2_july_mid_refuse_helper.jsonl"
+    },
+    {
+      "episode_id": "f2d029a80e17c3e0_002",
+      "gold_path": "gold/turns/t2_july_mid_cover_witness.jsonl"
+    },
+    {
+      "episode_id": "f2d029a80e17c3e0_003",
+      "gold_path": "gold/turns/t2_july_mid_stubborn_choice.jsonl"
+    },
+    {
+      "episode_id": "f2d029a80e17c3e0_011",
+      "gold_path": "gold/turns/t3_july_late_absorb_vent.jsonl"
+    },
+    {
+      "episode_id": "2152b6e55961dbea_000",
+      "gold_path": "gold/turns/t4_august_absorb_vent.jsonl"
+    },
+    {
+      "episode_id": "2152b6e55961dbea_004",
+      "gold_path": "gold/turns/t4_august_cover_witness.jsonl"
+    },
+    {
+      "episode_id": "5f85b21718036a64_000",
+      "gold_path": "gold/turns/t4_august_refuse_helper.jsonl"
+    }
+  ],
+  "ci": [
+    "76f455384adcf745_000",
+    "ccf93d69196d11ea_000",
+    "ccf93d69196d11ea_001",
+    "ccf93d69196d11ea_002",
+    "ccf93d69196d11ea_003",
+    "ccf93d69196d11ea_005",
+    "ccf93d69196d11ea_007",
+    "ccf93d69196d11ea_008",
+    "ccf93d69196d11ea_012",
+    "ccf93d69196d11ea_014",
+    "ccf93d69196d11ea_016",
+    "ccf93d69196d11ea_018",
+    "ccf93d69196d11ea_019",
+    "ccf93d69196d11ea_022",
+    "ccf93d69196d11ea_023",
+    "ccf93d69196d11ea_024",
+    "ccf93d69196d11ea_025",
+    "ccf93d69196d11ea_026",
+    "ccf93d69196d11ea_028",
+    "ccf93d69196d11ea_029",
+    "ed1637eb650b5963_000",
+    "ed1637eb650b5963_004",
+    "f577a140fbb5e3f5_002",
+    "f2d029a80e17c3e0_000",
+    "f2d029a80e17c3e0_005",
+    "f2d029a80e17c3e0_006",
+    "f2d029a80e17c3e0_008",
+    "f2d029a80e17c3e0_012",
+    "f2d029a80e17c3e0_016",
+    "f2d029a80e17c3e0_019",
+    "f2d029a80e17c3e0_020",
+    "f2d029a80e17c3e0_022",
+    "f2d029a80e17c3e0_023",
+    "f2d029a80e17c3e0_025",
+    "ea23016fe7345c0a_000",
+    "ea23016fe7345c0a_001",
+    "ea23016fe7345c0a_003",
+    "ea23016fe7345c0a_005",
+    "ea23016fe7345c0a_006",
+    "ea23016fe7345c0a_009",
+    "2152b6e55961dbea_001",
+    "2152b6e55961dbea_002",
+    "2152b6e55961dbea_003",
+    "5f85b21718036a64_003"
+  ],
+  "sealed": []
+}

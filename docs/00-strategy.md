@@ -6,9 +6,11 @@ Answer: handwritten product docs plus a small module graph are the source of tru
 
 ## Product docs (this repo)
 
-Plain markdown that a new engineer can read: turn loop, identity, how memory actually behaves, product API and tenancy.
+Plain markdown that a new engineer or agent can read: turn loop, identity, how memory actually behaves, product API and tenancy.
 
-This is the right primary artifact. Ambiguous contracts (who is speaking, what is shared vs per-user) cannot be inferred safely from a pack of chat nodes.
+**Mouth** is not in those docs. Mouth is `gold/turns/` (full aliased replies) + `gold/codebook.md`. Architecture without gold produces a sarcastic chatbot. Ambiguous contracts (who is speaking, what is shared vs per-user) cannot be inferred safely from a pack of chat nodes. How she *sounds* cannot be inferred from `soul.md`.
+
+Agents load [AGENTS.md](../AGENTS.md) first.
 
 ## MODULE_GRAPH.yaml
 
@@ -26,8 +28,9 @@ property_graph.py is her in-world entity store. Not a graph of Python modules. C
 
 ## Stack
 
-1. hades-product/docs - source of truth
-2. MODULE_GRAPH.yaml - file + state contracts
-3. runtime git SHA - what the docs describe
-4. FOSSIL packs - research appendix only
-5. world property graph - runtime feature
+1. `AGENTS.md` + `gold/turns/` — end goal and mouth
+2. hades-product/docs — architecture and identity
+3. MODULE_GRAPH.yaml — file + state contracts (when it exists)
+4. runtime git SHA — what the docs describe
+5. FOSSIL packs — research appendix only
+6. world property graph — runtime feature

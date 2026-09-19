@@ -1,0 +1,26 @@
+schema_version: "1"
+note: File and state contracts. Not FOSSIL. Not a mouth.
+
+nodes:
+  gold:
+    reads: []
+    writes: []
+    files: ["gold/schema.json", "gold/catalog.jsonl", "gold/turns/*.jsonl", "gold/holdouts.json", "gold/packet.schema.json"]
+  tools:
+    reads: ["gold/"]
+    writes: []
+    files: ["tools/gold_checks.py", "tools/holdouts.py", "tools/replay.py", "tools/anonymize.py", "tools/transcript_stats.py"]
+  tests:
+    reads: ["gold/", "tools/", "plans/session/CONTEXT.md", "docs/04-product-architecture.md", "pyproject.toml"]
+    writes: []
+  docs:
+    reads: []
+    writes: []
+    files: ["docs/00-strategy.md", "docs/04-product-architecture.md", "docs/PRIVACY.md"]
+  plans:
+    reads: ["docs/", "gold/", "AGENTS.md"]
+    writes: ["plans/session/HANDOFF.md"]
+  runtime_extract:
+    reads: ["hades-v2@a783d91a3ba1e847371e0f3aaef2a65b5cf50507"]
+    writes: []
+    not_in_this_repo: [".env", "name tables", "149k dump", "fossil-core", "hades_emotion source", "live memories copy"]

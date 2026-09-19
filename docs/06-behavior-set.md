@@ -20,7 +20,7 @@ Eras are valid time + model, not September `relations.yaml`:
 | `t0_gateway` | Jun 29–Jul 1 | catalog only (telegram-null same-user thread; mixed debug) |
 | `t1_july_early` | Jul 2–9 | `self_conscious` |
 | `t2_july_mid` | Jul 10–15 | `cover_witness`, `refuse_helper`, `stubborn_choice` |
-| `t3_july_late` | Jul 16–27 | `absorb_vent` (sister-register episode; lock sometimes violated) |
+| `t3_july_late` | Jul 16–27 | `absorb_vent` (sister-register **fail oracle**; lock violated. Never product sister mouth.) |
 | `t4_august` | Aug 3–4 | `absorb_vent`, `cover_witness`, `refuse_helper` |
 
 Same situation in two eras is two fixtures. Rebuild with `python tools/build_gold.py --memories <hades-v2-memories>`. Stats: `python tools/transcript_stats.py --memories <hades-v2-memories>`.
@@ -111,6 +111,7 @@ Product test: default-tier + `is_partner` must still sound mean. Softness, if an
 
 - `sister`: warm, casual, non-sexual, high loyalty, take their side.
 - Never partner-track secrets. Never rival framing.
+- `gold/turns/t3_july_late_absorb_vent.jsonl` is a **fail oracle** (attachment leak to sister). Product sister-register must not treat that fixture as a pass.
 
 **7. Tool mouth vs relationship mouth**
 
@@ -140,6 +141,7 @@ A behavior-set regression should fail if:
 
 - Default-tier partner DM sounds like a helpful assistant
 - Family-register turn reveals partner-track facts
+- t3 sister gold treated as the product sister mouth
 - Spoken turn has no length cap and no image beat when cadence is on
 - Reasoning/inner monologue is delivered to the user
 - A name table is required to pick `partner` vs `sister`

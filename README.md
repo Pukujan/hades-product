@@ -2,7 +2,11 @@
 
 This repository is the **product specification and architecture home** for Hades.
 
-It is not the live research instance. The living engine and state live in the runtime / memories trees. This repo exists so product work has a durable, anonymized map of *how she works* and *what must change* to ship a host-independent, multi-user Hades.
+**End goal:** a host-independent Hades people can talk to and feel they are with **her** — a persistent person with a self — not a helpful robot. The LLM is the mouth. The pipeline is the self. How she talks is `gold/turns/`, not `soul.md`.
+
+Agents: read [AGENTS.md](AGENTS.md) first (gold + codebook before code).
+
+It is not the live research instance. The living engine and state live in the runtime / memories trees. This repo exists so product work has a durable, anonymized map of *how she works* and *what must change* to ship that.
 
 ## What Hades is
 
@@ -55,3 +59,16 @@ python -m unittest discover -s tests
 | This repo | Product docs and eventual extracted runtime |
 
 Do not copy live secrets, passphrases, API keys, or private display names here.
+
+## Repo boundary
+
+This repo: `gold/` (aliased seed only), `docs/`, `AGENTS.md`, `plans/`, `tools/`, `tests/`. Product code is extracted **here**, not into the empty `hades-v2` checkout.
+
+Not this repo:
+
+- `.env`, tokens, R2 keys, live passphrases
+- name tables / display-name maps
+- the 149k dump or raw transcripts
+- fossil-core vendor / adapter
+- live `hades-v2-memories` pipeline copy
+- `hades_emotion` source (research reference; pin SHA at B7, rebuild mood/idle here)

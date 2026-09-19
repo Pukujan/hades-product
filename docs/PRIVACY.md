@@ -21,5 +21,8 @@ Never commit:
 - Telegram / Discord numeric IDs
 - Private display names
 - Raw conversation transcripts
+- The 149k dump
+- fossil-core as a vendor subtree
+- live memories pipeline copy / `hades_emotion` source
 
-Exception: `gold/turns/*.jsonl` holds **full aliased** spoken turns (`primary_user`, `sister`, `[REDACTED]`). No reasoning bodies. Catalog rows have no `content`. Local name maps stay in `tools/alias_map.local.json` (gitignored).
+Exception: `gold/turns/*.jsonl` holds **full aliased** spoken turns (`primary_user`, `sister`, `[REDACTED]`). No reasoning bodies. Catalog rows have no `content`. Local name maps stay in `tools/alias_map.local.json` (gitignored). Local mouth key lives in gitignored `.env` (see `.env.example`). Never commit `.env`.
