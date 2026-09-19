@@ -5,3 +5,4 @@ venv/
 tools/alias_map.local.json
 .env
 *.local.json
+data/

@@ -4,23 +4,20 @@ Replace this file when the next sitting ends.
 
 ## Done
 
-- B0–B10, B12, B13/B15 in-memory, B11 gate + tag matcher (no ONNX).
-- B14 metamorphic: register flip, circadian, model swap, packet-on nicer-fail. Live sister flip + packet on/off **OK**.
-- Turn path: flags → packet → mouth hook → deliver → receipt. No reasoning.
+- B0–B14 lite, turn path, tag matcher, live mouth.
+- FileStore on disk (`data/` gitignored). Isolation across reload.
+- R2 signed GET URL stub: client gets URL, not keys.
 
 ## Verify
 
-`python -m unittest discover -s tests`
-
-Live: `$env:HADES_MOUTH_LIVE=1` (metamorphic + replay).
+`python -m unittest discover -s tests` — 59 OK (2 live skipped).
 
 ## Next
 
-Real vault/ONNX still outside — do not copy memories. React (B16) last. FOSSIL (B17) optional. Do not commit `.env`.
+Wire FileStore into turn path. Signed URL after image gate. Still no React. No vault extract from memories. Do not commit `.env`.
 
 ## Fail if
 
 - `.env` committed
+- R2 keys in client payload
 - t3 pass sister mouth
-- holdouts in prompts
-- Qwen as architecture
