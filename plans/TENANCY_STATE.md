@@ -253,6 +253,18 @@ Product: keep the numpy matrix per account. Do **not** require neuromorphic sili
 
 Small net → deltas → big LLM is the right split: ticker stays tiny; mouth stays gold-gated.
 
+**KV cache ≠ she read it.** Caching a long prefix is cheap on *decode*. It does **not** fix Lost-in-the-Middle: the model still under-uses the middle. Per-account packets also **don’t share** KV across users (prefixes differ). Scale: GPU KV is O(seq_len × layers × batch). Dumping thoughts.jsonl + session into every turn **does** explode at 100k.
+
+Two different “memories” (this is why she can feel consistent *or* drift):
+
+| | Hermes session | Her engines |
+|---|---|---|
+| What | Gateway chat log in the context window | yaml/DB numbers + lock, re-injected **every** turn |
+| Compaction | Aux LLM summarizes old turns for **task** continuity (`hades-soul` notes). `protect_first_n` **decays to 0**. Middle of SOUL.md forgotten (line 63 ritual bug). | Packet/lock is small and **rebuilt** each turn — survives compaction |
+| Product | Trim/compact session; don’t treat it as the self | Packet from **this account’s** DB is the self |
+
+Your “dump the pipeline → more consistent” is the **second** column: lock+state every turn, not a bigger dump. Session history is extra and gets eaten. Don’t confuse the two.
+
 ## Observability vs her mouth
 
 Need **billing and latency**. Do not need full prompt traces of live DMs.
