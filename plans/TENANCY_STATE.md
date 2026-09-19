@@ -245,6 +245,14 @@ Hebb 1949; STDP (Bi & Poo 1998); Oja 1982 if we need a stabilizer. Gold still ju
 
 Product: keep the numpy matrix per account. Do **not** require neuromorphic silicon. If we ever want real STDP, that’s a later backend behind the same 27-node API. Mouth still gold.
 
+**A/B:** gold replay with vs without `neural_capabilities` in the packet. Today that flag is **unread** — expect **no** mouth change. If we wire `activate()` → mood_delta, A/B against gold (not “feels nicer”). Packet **on** (state+lock every turn) is already required; that’s what made her consistent, not the unused Hebb flag.
+
+**Research, not novel-as-in-nobody:** injecting affect into an LLM is studied (EmotionPrompt, arXiv:2307.11760). Persistent PAD-like state is Picard / Mehrabian, not Character.AI papers. A **27×27 Hebbian growth net → deltas → big mouth LLM** is **bespoke** (not Loihi, not a published character-AI stack). Don’t claim a paper we don’t have.
+
+**How the mouth actually sees state today:** not the JSON files raw. Engine writes yaml → pre-LLM builds a **short text block** `[CURRENT STATE]` + `[PERSONALITY LOCK]` every turn (`plugins/pre-llm-pipeline/__init__.py`). The 27×27 is **not** in that block. Pipeline *code* is large; **injected tokens** are small. Dumping the whole matrix would hit Lost-in-the-Middle (Liu et al., arXiv:2307.03172). Compress = keep labels + a few numbers at the **edges** of the prompt, not a bigger dump.
+
+Small net → deltas → big LLM is the right split: ticker stays tiny; mouth stays gold-gated.
+
 ## Observability vs her mouth
 
 Need **billing and latency**. Do not need full prompt traces of live DMs.
