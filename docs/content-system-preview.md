@@ -1,6 +1,6 @@
 # Hades Product — content-system preview
 
-> Review artifact for `TASK-0017`. This is a proposed product story; it does not replace `README.md` or invent the missing architecture documents linked from it.
+> Review artifact for `TASK-0017`. This is the reviewed product story staged in `README.md`; it does not invent the missing architecture documents linked from it.
 
 ## Start with the human question
 
@@ -44,4 +44,4 @@ The public repository is a documentation and architecture home, not proof that e
 
 ## Contract used
 
-This preview pins `content-generation-modules@0.1.2` at `cb8c18fa7789e4b651e1f963892bf056b0d3276d`. Canonical product docs remain unchanged until review.
+This preview pins `content-generation-modules@0.1.2` at `cb8c18fa7789e4b651e1f963892bf056b0d3276d`. The canonical README now uses the reviewed images and story on this branch; merge remains the human review gate.
