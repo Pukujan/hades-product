@@ -1,0 +1,8 @@
+{
+  "schema_version": "content-generation.asset-manifest.v1",
+  "system_version": "0.1.2",
+  "assets": [
+    {"path": "docs/content-system-assets/hero.png", "role": "story introduction", "orientation": "wide", "dimensions": "1672x941", "text_policy": "exact short title plus subtitle", "prompt_recipe": "person and gentle AI companion share a quiet desk while restrained memory motifs continue around them; title A character that continues; subtitle Identity, mood, and private relationships persist across conversations.", "review": "accepted"},
+    {"path": "docs/content-system-assets/supporting-square.png", "role": "privacy and relationship boundary explanation", "orientation": "square", "dimensions": "1254x1254", "text_policy": "exact short title plus subtitle", "prompt_recipe": "two distinct silhouettes connected by one soft thread and a few memory motes; title Memory needs boundaries; subtitle Shared personality, private tracks, and context kept in place.", "review": "accepted"}
+  ]
+}

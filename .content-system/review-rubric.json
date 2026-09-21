@@ -1,0 +1,11 @@
+{
+  "schema_version": "content-generation.review-rubric.v1",
+  "dimensions": [
+    {"id": "human_comprehension", "question": "Can a first-time reader explain the difference between shared identity and private relationship context?", "weight": 3},
+    {"id": "claim_safety", "question": "Does the preview distinguish current product documentation from the live research instance and future architecture?", "weight": 3},
+    {"id": "privacy", "question": "Does every example preserve the repository's anonymization and secret-handling rules?", "weight": 3},
+    {"id": "visual_clarity", "question": "Does the visual communicate continuity without turning memory into spectacle?", "weight": 2},
+    {"id": "responsive_fit", "question": "Does the story remain legible when the wide and square assets stack?", "weight": 1}
+  ],
+  "decision_rule": "Accept only when claim_safety and privacy pass and no weighted dimension is below 3/5; human review decides promotion."
+}
