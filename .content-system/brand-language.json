@@ -1,0 +1,9 @@
+{
+  "schema_version": "content-generation.brand-language.v1",
+  "name": "Hades Product",
+  "personality": ["warm", "precise", "protective of boundaries", "emotionally literate", "technically grounded"],
+  "audience_feeling": "The reader should feel the human stakes of continuity while still seeing the boundaries, data model, and unfinished product work clearly.",
+  "promise": "Explain how a character can continue across time without pretending shared identity and private relationship context are the same thing.",
+  "preferred_terms": {"trust": "clear separation and explicit provenance", "memory": "what persists, for whom, and under which boundary", "technical detail": "start with the relationship question, then show the architecture"},
+  "avoid": ["seamless companion", "always remembers", "conscious AI", "frictionless intimacy", "fully autonomous self"]
+}

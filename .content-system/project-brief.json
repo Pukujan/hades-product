@@ -1,0 +1,16 @@
+{
+  "schema_version": "content-generation.project-brief.v1",
+  "project": "Hades Product",
+  "audience": ["people designing persistent character systems", "engineers separating shared identity from private relationships", "researchers turning a host-bound character into a multi-user product"],
+  "problem": "A chatbot can produce a convincing turn without having a durable model of identity, changing mood, private relationship context, or what should remain separate between people.",
+  "solution": "Define Hades as a persistent character runtime whose personality is shared, whose relationship tracks and memories are isolated per human, and whose product architecture is host-independent rather than tied to one research instance.",
+  "mechanism": ["keep product docs as the source of truth", "separate personality substrate from per-person relationship tracks", "treat mood, fatigue, circadian rhythm, and idle life as runtime state", "use a module graph for file/state links", "keep FOSSIL captures as research appendix rather than product map", "protect product documentation from private research identity"],
+  "evidence": [
+    {"claim": "Hades is defined as a persistent character runtime, not a chatbot wrapper.", "source": "README.md", "status": "shipped"},
+    {"claim": "The product separates shared personality from private memories and relationship tracks.", "source": "README.md; docs/00-strategy.md", "status": "shipped"},
+    {"claim": "Handwritten product docs and MODULE_GRAPH are the intended source of truth.", "source": "docs/00-strategy.md; README.md", "status": "shipped"},
+    {"claim": "Private names, secrets, identifiers, and raw conversations must stay out of this repository.", "source": "docs/PRIVACY.md; README.md", "status": "shipped"}
+  ],
+  "boundaries": ["This repository is product specification and architecture, not the live research instance.", "FOSSIL packs are provenance/research appendix, not the primary code map.", "Product documentation uses person_id or role language, never private display names.", "Do not imply that persistence, tenancy, or host independence is fully shipped when the repository describes architecture.", "The LLM is the mouth; the surrounding pipeline defines the self."],
+  "terminology": {"preferred": {"memory": "private context with an explicit boundary", "identity": "shared personality substrate plus account relationship track", "product": "host-independent persistent character runtime"}, "avoid": ["just a chatbot", "digital girlfriend", "human-like consciousness", "guaranteed memory", "magical personality"]}
+}
