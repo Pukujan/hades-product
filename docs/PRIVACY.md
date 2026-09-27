@@ -10,6 +10,7 @@ Use only:
 | Family / sister register | `is_family: true` → register `sister` |
 | Exclusive partner register | `is_partner: true` → register `partner` |
 | Simulated idle-life friends | `virtual_friend` (fictional cast is fine) |
+| Default-tier “someone could be reading” | family register presence / cover constraint — not a named witness |
 
 Hardcoded name tables in the research engine (`registers.py`, recall weight maps, Telegram display-name substring maps) are **research debt**. Product config is flags on `person_id`, not names in source.
 

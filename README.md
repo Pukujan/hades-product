@@ -20,11 +20,12 @@ The research instance is one character bound to one host and one primary relatio
 1. [docs/00-strategy.md](docs/00-strategy.md) — docs vs FOSSIL vs knowledge graph
 2. [docs/01-how-she-works.md](docs/01-how-she-works.md) — turn loop and idle life
 3. [docs/02-identity-and-relationships.md](docs/02-identity-and-relationships.md) — who she thinks she is talking to
-4. [docs/03-memory-and-inner-life.md](docs/03-memory-and-inner-life.md) — what actually persists
-5. [docs/04-product-architecture.md](docs/04-product-architecture.md) — auth, API, tenancy
-6. [docs/05-workspace.md](docs/05-workspace.md) — local Cursor workspace for all three repos
-7. [docs/MODULE_GRAPH.yaml](docs/MODULE_GRAPH.yaml) — how files link
-8. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
+4. [docs/06-behavior-set.md](docs/06-behavior-set.md) — observed mouth from newest DMs
+5. [docs/03-memory-and-inner-life.md](docs/03-memory-and-inner-life.md) — what actually persists (not written yet)
+6. [docs/04-product-architecture.md](docs/04-product-architecture.md) — auth, API, tenancy (not written yet)
+7. [docs/05-workspace.md](docs/05-workspace.md) — local Cursor workspace for all three repos
+8. [docs/transcripts-stats.md](docs/transcripts-stats.md) — counts only
+9. [docs/PRIVACY.md](docs/PRIVACY.md) — no private names in this repo
 
 ## Local workspace
 

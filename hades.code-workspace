@@ -5,12 +5,12 @@
       "path": "."
     },
     {
-      "name": "hades-v2",
-      "path": "../hades-v2"
+      "name": "runtime-nested-copy",
+      "path": "../runtime-nested-copy"
     },
     {
-      "name": "hades-v2-memories",
-      "path": "../hades-v2-memories"
+      "name": "memories",
+      "path": "../memories"
     }
   ],
   "settings": {
